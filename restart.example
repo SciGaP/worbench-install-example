@@ -1,0 +1,11 @@
+#!/bin/bash
+
+export PATH=/home/localuser/java/jdk1.8.0_111/bin:$PATH:/home/localuser/nsg_data/extest/scripts
+export SDK_VERSIONS=/home/localuser/nsg_data/extest/scripts
+export ANT_HOME=/home/localuser/apache-ant-1.8.3
+export JAVA_HOME=/home/localuser/java/jdk1.8.0_111
+
+/home/localuser/nsg_data/extest/scripts/submitJobD restart
+/home/localuser/nsg_data/extest/scripts/checkJobsD restart
+/home/localuser/nsg_data/extest/scripts/loadResultsD restart
+

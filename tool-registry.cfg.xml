@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ToolRegistry>
+	<ToolResources>
+		<ToolResource id="comet" type="REMOTE_SHELL" 
+			class="org.ngbw.sdk.tool.DefaultToolResource"
+			filehandler="org.ngbw.sdk.tool.SFTPFileHandler" 
+			processworker="org.ngbw.sdk.tool.SSHExecProcessWorker">
+			<Parameters>
+				<Parameter key="runner" value="org.ngbw.sdk.common.util.SSHExecProcessRunner"/>
+				<Parameter key="login" value="${comet.login}"/>
+				<Parameter key="fileHost" value="${comet.fileHost}"/>
+				<Parameter key="workspace" value="${comet.workspace}"/>
+				<Parameter key="rc" value="${comet.rc}"/>
+				<Parameter key="submit" value="${comet.submit}"/>
+				<Parameter key="check" value="${comet.check}"/>
+				<Parameter key="cancel" value="${comet.cancel}"/>
+				<Parameter key="accountGroup" value="teragrid"/>
+				<Parameter key="chargeNumber" value="${comet.project}"/>
+				<Parameter key="coresPerNode" value="24"/>
+			</Parameters>
+		</ToolResource>
+		<ToolResource id="LOCALHOST" type="LOCAL_SHELL"
+			class="org.ngbw.sdk.tool.DefaultToolResource"
+			filehandler="org.ngbw.sdk.tool.LocalFileHandler"
+			processworker="org.ngbw.sdk.tool.SSHProcessWorker">
+			<Parameters>
+				<Parameter key="host" value="localhost" />
+				<Parameter key="workspace" value="${workspace}"/>
+			</Parameters>
+		</ToolResource>
+	</ToolResources>
+	<ToolGroups>
+		<ToolGroup id="XSEDE" disable="${teragrid.tools.disable}">
+			<!--
+			-->
+			<Tool id="SOMEXSEDETOOL" 
+				name="SOMEXSEDETOOL on Comet"
+				configfile="pisexml/somexsedetool.xml" toolresource="comet"
+				commandrenderer="org.ngbw.pise.commandrenderer.PiseCommandRenderer">
+				<InputParameters>
+					<InputParameter id="infile_" entityType="UNKNOWN" dataType="UNKNOWN" dataFormat="UNKNOWN" iomode="FILE"/>
+				</InputParameters>
+				<OutputParameters>
+				</OutputParameters>
+			</Tool>
+		</ToolGroup>
+	</ToolGroups>
+</ToolRegistry>

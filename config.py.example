@@ -1,0 +1,8 @@
+CIPRESDIR = '/home/localuser/cipres'
+NSGDATADIR = '/home/localuser/nsg_data/extest'
+ANTDIR = '/home/localuser/apache-ant-1.8.3'
+REMOTESCRIPTSDIR = '/home/remoteuser/ngbw/contrib/scripts'
+REMOTEUSER = 'remoteuser'
+REMOTEHOST = 'cluster.example.org'
+JAVA_HOME = '/home/localuser/java/jdk1.8.0_111'
+
